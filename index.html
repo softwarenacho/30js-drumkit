@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <title>Nacho's drum kit</title>
+  <style>
+    .drum-key {
+      border: 1px solid black;
+      transition: all 1s;
+    }
+    .playing {
+      transform:  scale(2);
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Nacho's drum kit</h1>
+  <p>Press some keys to start playing</p>
+
+  <div class="drum-area">
+    <div class="row">
+      <div class="drum-key" data-key="81">
+        <kbd>Q</kbd>
+        <span>Bell</span>
+      </div>
+      <div class="drum-key" data-key="87">
+        <kbd>W</kbd>
+        <span>Bongo</span>
+      </div>
+      <div class="drum-key" data-key="69">
+        <kbd>E</kbd>
+        <span>Chimes</span>
+      </div>
+      <div class="drum-key" data-key="82">
+        <kbd>R</kbd>
+        <span>Crash</span>
+      </div>
+      <div class="drum-key" data-key="84">
+        <kbd>T</kbd>
+        <span>Conga</span>
+      </div>
+      <div class="drum-key" data-key="89">
+        <kbd>Y</kbd>
+        <span>Cowbell</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="drum-key" data-key="65">
+        <kbd>A</kbd>
+        <span>Djembe</span>
+      </div>
+      <div class="drum-key" data-key="83">
+        <kbd>S</kbd>
+        <span>Flex</span>
+      </div>
+      <div class="drum-key" data-key="68">
+        <kbd>D</kbd>
+        <span>Glass</span>
+      </div>
+      <div class="drum-key" data-key="70">
+        <kbd>F</kbd>
+        <span>Broken</span>
+      </div>
+      <div class="drum-key" data-key="71">
+        <kbd>G</kbd>
+        <span>Guiro</span>
+      </div>
+      <div class="drum-key" data-key="72">
+        <kbd>H</kbd>
+        <span>Rain</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="drum-key" data-key="90">
+        <kbd>Z</kbd>
+        <span>Tabla</span>
+      </div>
+      <div class="drum-key" data-key="88">
+        <kbd>X</kbd>
+        <span>Tambourine</span>
+      </div>
+      <div class="drum-key" data-key="67">
+        <kbd>C</kbd>
+        <span>Timbales</span>
+      </div>
+      <div class="drum-key" data-key="86">
+        <kbd>V</kbd>
+        <span>Triangle</span>
+      </div>
+      <div class="drum-key" data-key="66">
+        <kbd>B</kbd>
+        <span>Udu</span>
+      </div>
+      <div class="drum-key" data-key="78">
+        <kbd>N</kbd>
+        <span>Whip</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="audios">
+
+    <audio data-key="81" src="drums/agogo.wav"></audio>
+    <audio data-key="87" src="drums/bongo.wav"></audio>
+    <audio data-key="69" src="drums/chimes.wav"></audio>
+    <audio data-key="82" src="drums/crash.wav"></audio>
+    <audio data-key="84" src="drums/conga.wav"></audio>
+    <audio data-key="89" src="drums/cowbell.wav"></audio>
+
+    <audio data-key="65" src="drums/djembe.wav"></audio>
+    <audio data-key="83" src="drums/flex.wav"></audio>
+    <audio data-key="68" src="drums/glass.wav"></audio>
+    <audio data-key="70" src="drums/broken.wav"></audio>
+    <audio data-key="71" src="drums/guiro.wav"></audio>
+    <audio data-key="72" src="drums/rain.wav"></audio>
+
+    <audio data-key="90" src="drums/tabla.wav"></audio>
+    <audio data-key="88" src="drums/tambourine.wav"></audio>
+    <audio data-key="67" src="drums/timbales.wav"></audio>
+    <audio data-key="86" src="drums/triangle.wav"></audio>
+    <audio data-key="66" src="drums/udu.wav"></audio>
+    <audio data-key="78" src="drums/whip.wav"></audio>
+
+  </div>
+
+  <script>
+
+    function playAudio(e) {
+      const code = e.keyCode;
+      const audio = document.querySelector(`audio[data-key="${code}"]`);
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+        const key = document.querySelector(`.drum-key[data-key="${code}"]`);
+        key.classList.add('playing')
+      }
+    }
+
+    function removeTransition(e) {
+      if (e.propertyName === 'transform') this.classList.remove('playing');
+    }
+
+    window.addEventListener('keydown', playAudio);
+    var keys = document.querySelectorAll('.drum-key');
+    keys.forEach( key => key.addEventListener('transitionend', removeTransition));
+
+  </script>
+
+</body>
+</html>
