@@ -6,6 +6,7 @@ function playAudio(e) {
     audio.play();
     const key = document.querySelector(`.drum-key[data-key="${code}"]`);
     key.classList.add('playing')
+    setTimeout(() => key.classList.remove('playing'), 2500);
   }
 }
 
