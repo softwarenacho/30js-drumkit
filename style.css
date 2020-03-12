@@ -1,0 +1,61 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #3F51B5;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 0;
+  color: #4CAF50;
+}
+
+.drum-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  margin: 0;
+}
+
+.drum-key {
+  user-select: none;
+  cursor: pointer;
+  padding: 10px;
+  margin:  10px;
+  border: 1px solid #3F51B5;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #3F51B5;
+  color: white;
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(2px 2px 2px black);
+}
+
+.drum-key kbd {
+  font-size: 30px;
+}
+
+.drum-key span {
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.playing {
+  transform: scale(1.1);
+  background-color: #4CAF50;
+  border: 2px solid #0ca20c;
+}
