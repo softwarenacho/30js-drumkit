@@ -3,7 +3,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #3F51B5;
+  color: #000000;
   width: 100vw;
   height: 100vh;
   background: url(drums.jpg);
@@ -27,7 +27,7 @@ h1 {
 
 p {
   margin-top: 0;
-  color: #4CAF50;
+  color: #000000;
 }
 
 .drum-area {
@@ -49,18 +49,20 @@ p {
   user-select: none;
   cursor: pointer;
   padding: 10px;
-  margin:  10px;
-  border: 1px solid #3F51B5;
+  margin: 10px;
+  border: 1px solid #000000;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   transition: all 0.5s;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #3F51B5;
-  color: white;
+  background-color: #ffffff;
+  color: black;
   width: 50px;
   height: 50px;
-  filter: drop-shadow(2px 2px 2px black);
+  filter: drop-shadow(2px 2px 0 black);
 }
 
 .drum-key kbd {
@@ -74,6 +76,7 @@ p {
 
 .playing {
   transform: scale(1.1);
-  background-color: #4CAF50;
-  border: 2px solid #0ca20c;
+  background-color: #000000;
+  color:  #ffffff;
+  border: 2px solid #000000;
 }
